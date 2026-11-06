@@ -14,6 +14,9 @@ export function Layout({ children }: { children: ReactNode }) {
             <Text fw={700} visibleFrom="xs">
               Объекты и задачи
             </Text>
+            <Anchor component={NavLink} to="/my">
+              Мои задачи
+            </Anchor>
             <Anchor component={NavLink} to="/objects">
               Объекты
             </Anchor>

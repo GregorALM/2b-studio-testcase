@@ -87,14 +87,14 @@ isOneToOne: false
                   ]
                 },"task_transitions": {
                   Row: {
-                    "actor": string,"comment_required": boolean,"from_status": string,"to_status": string
+                    "actor": string,"comment_required": boolean,"from_status": string,"label": string,"to_status": string
                   }
                   ComputedFields: never
                   Insert: {
-                    "actor": string,"comment_required"?: boolean,"from_status": string,"to_status": string
+                    "actor": string,"comment_required"?: boolean,"from_status": string,"label": string,"to_status": string
                   }
                   Update: {
-                    "actor"?: string,"comment_required"?: boolean,"from_status"?: string,"to_status"?: string
+                    "actor"?: string,"comment_required"?: boolean,"from_status"?: string,"label"?: string,"to_status"?: string
                   }
                   Relationships: [
                     {

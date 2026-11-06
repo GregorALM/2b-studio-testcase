@@ -53,18 +53,20 @@ insert into public.task_statuses (code, label, sort_order, is_final) values
 create table public.task_transitions (
   from_status text not null references public.task_statuses (code),
   to_status text not null references public.task_statuses (code),
+  -- текст кнопки в интерфейсе
+  label text not null,
   -- manager — любой постановщик, assignee — назначенный исполнитель задачи
   actor text not null check (actor in ('manager', 'assignee')),
   comment_required boolean not null default false,
   primary key (from_status, to_status)
 );
 
-insert into public.task_transitions (from_status, to_status, actor, comment_required) values
-  ('new',         'in_progress', 'assignee', false),
-  ('in_progress', 'review',      'assignee', false),
-  ('review',      'accepted',    'manager',  false),
-  ('review',      'rework',      'manager',  true),
-  ('rework',      'in_progress', 'assignee', false);
+insert into public.task_transitions (from_status, to_status, label, actor, comment_required) values
+  ('new',         'in_progress', 'Взять в работу',        'assignee', false),
+  ('in_progress', 'review',      'Отправить на проверку', 'assignee', false),
+  ('review',      'accepted',    'Принять',               'manager',  false),
+  ('review',      'rework',      'Вернуть на доработку',  'manager',  true),
+  ('rework',      'in_progress', 'Взять в работу',        'assignee', false);
 
 -- ============================================================
 -- Объекты, задачи, история

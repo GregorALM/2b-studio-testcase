@@ -9,9 +9,11 @@ const colors: Record<string, string> = {
   accepted: 'green',
 }
 
+export const statusColor = (code: string) => colors[code] ?? 'gray'
+
 export function StatusBadge({ code, label }: { code: string; label: string }) {
   return (
-    <Badge color={colors[code] ?? 'gray'} variant="light">
+    <Badge color={statusColor(code)} variant="light">
       {label}
     </Badge>
   )
