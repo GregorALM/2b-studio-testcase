@@ -23,10 +23,10 @@ if (password.length < 8) throw new Error('DEMO_PASSWORD должен быть н
 const opts = { auth: { persistSession: false, autoRefreshToken: false } }
 const admin = createClient(url, secretKey, opts)
 
-async function must<T>(query: PromiseLike<{ data: T; error: unknown }>): Promise<T> {
-  const { data, error } = await query
-  if (error) throw error
-  return data
+async function must<T>(query: PromiseLike<{ data: T; error: null } | { error: Error }>): Promise<T> {
+  const result = await query
+  if (result.error) throw result.error
+  return result.data
 }
 
 const people = [
