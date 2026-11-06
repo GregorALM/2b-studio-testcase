@@ -4,6 +4,7 @@
 
 - **Приложение:** https://2b-studio-mini-crm.vercel.app
 - **Коротко для руководителя:** [EXPLANATION.md](EXPLANATION.md)
+- **Сценарии со скриншотами:** [FLOWS.md](FLOWS.md)
 - **Решения и допущения:** [DECISIONS.md](DECISIONS.md)
 
 ## Доступы
